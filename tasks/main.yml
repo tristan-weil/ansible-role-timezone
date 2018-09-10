@@ -1,0 +1,7 @@
+---
+
+- name: update timezone
+  timezone:
+    name: "{{ timezone_config }}"
+  notify:
+    - cron restart
