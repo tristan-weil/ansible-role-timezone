@@ -9,3 +9,4 @@
         name: 'ansible-role-timezone'
       vars:
         timezone_config: 'Europe/Paris'
+        timezone_restart_cron: False

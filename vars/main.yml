@@ -1,0 +1,13 @@
+---
+
+##############################################################################
+# Variables
+##############################################################################
+_timezone_cron_service_name: "{{ _timezone_cron_service_name_by_distribution[ ansible_facts['os_family'] ] }}"
+
+##############################################################################
+# Distributions' dictionaries
+##############################################################################
+_timezone_cron_service_name_by_distribution:
+  Debian: 'cron'
+  OpenBSD: 'cron'
