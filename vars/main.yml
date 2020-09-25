@@ -8,6 +8,6 @@ _timezone_cron_service_name: "{{ _timezone_cron_service_name_by_os_family[ ansib
 ##############################################################################
 # Distributions' dictionaries
 ##############################################################################
-_timezone_cron_service_name_by_distribution:
+_timezone_cron_service_name_by_os_family:
   Debian: 'cron'
   OpenBSD: 'cron'
