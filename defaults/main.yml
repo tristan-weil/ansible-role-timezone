@@ -1,3 +1,4 @@
 ---
 
-timezone_config: Etc/UTC
+timezone_config: 'Etc/UTC'
+timezone_restart_cron: True

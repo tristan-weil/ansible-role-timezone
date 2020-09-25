@@ -1,0 +1,19 @@
+---
+
+- hosts: all
+  name: 'Verify'
+  become: True
+  gather_facts: True
+
+  tasks:
+    - name: 'Retrieve /etc/localtime stat'
+      stat:
+        path: '/etc/localtime'
+      register: __verify_file
+
+    - name: 'Check file points to the right tz file'
+      assert:
+        that:
+          - __verify_file.stat.exists
+          - __verify_file.stat.islnk
+          - __verify_file.stat.lnk_source == '/usr/share/zoneinfo/Europe/Paris'

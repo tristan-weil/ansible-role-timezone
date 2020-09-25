@@ -1,7 +1,22 @@
 ---
 
-- name: update timezone
+- name: 'update timezone'
   timezone:
     name: "{{ timezone_config }}"
-  notify:
-    - cron restart
+  register: __timezone_update
+
+- name: 'gather data about services'
+  service_facts:
+
+- name: 'restart cron if needed'  # noqa 503
+  service:
+    name: 'cron'
+    state: 'restarted'
+  when: >
+    timezone_restart_cron
+    and __timezone_update.changed
+    and (
+      "'crond.service' in ansible_facts['services']"
+      or "'crond' in ansible_facts['services']"
+      or "'cron' in ansible_facts['services']"
+    )
