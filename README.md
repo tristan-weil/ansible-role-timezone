@@ -41,4 +41,4 @@ See [meta/main.yml](https://github.com/tristan-weil/ansible-role-timezone/blob/m
 
 ## License
 
-See [LICENSE.md](https://github.com/tristan-weil/ansible-role-timezone/blob/master/LICENSE.md)
+See [LICENSE.md](LICENSE.md)
